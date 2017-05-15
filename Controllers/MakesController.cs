@@ -9,7 +9,12 @@ namespace WebApplicationBasic.Controllers
     public class MakesController : Controller
     {
         private readonly VegaDbContext context;
-        
+
+        public MakesController(VegaDbContext context)
+        {
+            this.context = context;
+        }
+
         [HttpGet("/api/makes")]
         public IEnumerable<Make> GetMakes() 
         {
