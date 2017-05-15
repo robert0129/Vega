@@ -8,7 +8,7 @@ using WebApplicationBasic.Persistence;
 namespace Vega.Migrations
 {
     [DbContext(typeof(VegaDbContext))]
-    [Migration("20170515114125_InitModels")]
+    [Migration("20170515144657_InitModels")]
     partial class InitModels
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -46,7 +46,7 @@ namespace Vega.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("MakeId");
+                    b.Property<int>("MakeId");
 
                     b.Property<string>("Name");
 
@@ -59,9 +59,10 @@ namespace Vega.Migrations
 
             modelBuilder.Entity("WebApplicationBasic.Core.Models.Model", b =>
                 {
-                    b.HasOne("WebApplicationBasic.Core.Models.Make")
+                    b.HasOne("WebApplicationBasic.Core.Models.Make", "Make")
                         .WithMany("Models")
-                        .HasForeignKey("MakeId");
+                        .HasForeignKey("MakeId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
         }
     }
