@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace WebApplicationBasic.Core.Models
 {
@@ -6,6 +7,10 @@ namespace WebApplicationBasic.Core.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<Model> Models { get; set; }
+        public ICollection<Model> Models { get; set; }
+        public Make()
+        {
+            Models = new Collection<Model>();
+        }
     }
 }
