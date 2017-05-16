@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WebApplicationBasic.Core.Models;
 using WebApplicationBasic.Persistence;
 
@@ -16,9 +18,9 @@ namespace WebApplicationBasic.Controllers
         }
 
         [HttpGet("/api/makes")]
-        public IEnumerable<Make> GetMakes() 
+        public async Task<IEnumerable<Make>> GetMakes() 
         {
-            return context.Makes.ToList();
+            return await context.Makes.Include(m => m.Models).ToListAsync();
         } 
     }
 }
