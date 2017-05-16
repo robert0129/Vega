@@ -1,6 +1,6 @@
 using WebApplicationBasic.Core.Models;
 
-namespace vega.Controllers.Resources
+namespace WebApplicationBasic.Controllers.Resources
 {
     public class ModelResource
     {

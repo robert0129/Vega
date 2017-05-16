@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using WebApplicationBasic.Core.Models;
 
-namespace vega.Controllers.Resources
+namespace WebApplicationBasic.Controllers.Resources
 {
     public class MakeResource
     {
