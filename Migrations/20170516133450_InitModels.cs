@@ -28,7 +28,7 @@ namespace Vega.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(maxLength: 255, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -36,19 +36,19 @@ namespace Vega.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Modles",
+                name: "Models",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     MakeId = table.Column<int>(nullable: false),
-                    Name = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(maxLength: 255, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Modles", x => x.Id);
+                    table.PrimaryKey("PK_Models", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Modles_Makes_MakeId",
+                        name: "FK_Models_Makes_MakeId",
                         column: x => x.MakeId,
                         principalTable: "Makes",
                         principalColumn: "Id",
@@ -56,8 +56,8 @@ namespace Vega.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Modles_MakeId",
-                table: "Modles",
+                name: "IX_Models_MakeId",
+                table: "Models",
                 column: "MakeId");
         }
 
@@ -67,7 +67,7 @@ namespace Vega.Migrations
                 name: "Features");
 
             migrationBuilder.DropTable(
-                name: "Modles");
+                name: "Models");
 
             migrationBuilder.DropTable(
                 name: "Makes");
