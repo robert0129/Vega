@@ -4,6 +4,7 @@ namespace WebApplicationBasic.Core.Models
 {
     public class Contact
     {
+        public int Id {get; set;}
         [Required]
         [StringLengthAttribute(255)]
         public string ContactName { get; set; }

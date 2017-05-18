@@ -15,6 +15,8 @@ namespace WebApplicationBasic.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) 
         {
+            // To Define Composite Key
+            modelBuilder.Entity<VehicleFeature>().HasKey(vf => new {vf.VehicleId, vf.FeatureId});
         }
     }
 }
